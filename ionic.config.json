@@ -1,0 +1,7 @@
+{
+  "name": "UFit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
