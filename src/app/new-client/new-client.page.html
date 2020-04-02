@@ -11,19 +11,30 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
+      <ion-title size="large">New Clients</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    <p>hello world, im in the new client html</p>
-  </div>
+  <ion-chip>
+    <ion-avatar>
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-label>Avatar Chip</ion-label>
+    <ion-icon name="close-circle"></ion-icon>
+  </ion-chip>
+  <ion-chip>
+    <ion-avatar>
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-label>Avatar Chip</ion-label>
+    <ion-icon name="close-circle"></ion-icon>
+  </ion-chip>
+  <ion-chip>
+    <ion-avatar>
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-label>Avatar Chip</ion-label>
+    <ion-icon name="close-circle"></ion-icon>
+  </ion-chip>
 </ion-content>
 
-<ion-fab (click) = "presentAlert()" vertical="top" horizontal="end" slot="fixed">
-  <ion-fab-button>
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>

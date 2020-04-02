@@ -14,15 +14,41 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    <p>hello world, im in the pages html</p>
-  </div>
-</ion-content>
 
-<ion-fab (click) = "presentAlert()" vertical="top" horizontal="end" slot="fixed">
-  <ion-fab-button>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items; let i = index">
+      <ion-item>
+        <ion-label>{{item}}</ion-label>
+      </ion-item>
+      
+      <ion-item-options side = "end" (ionSwipe) = "delete(i)">
+        <ion-item-option color = "danger" (click) = "delete(i)" expandable>
+          <ion-icon name = "close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
+
+<ion-fab (click) = "newClients()" vertical="top" horizontal="end" slot="fixed">
+   <ion-fab-button>
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
+
+
+
+<!-- <div>
+  <ion-button (click) ="presentAlert()">Basic Alert</ion-button> 
+</div>
+<div>
+  <ion-button (click) ="presentAlertMultipleButtons()">Multiple Buttons</ion-button>
+</div>
+   
+<div>
+  <ion-button (click) ="presentAlertConfirm()">Confirm</ion-button> 
+</div>
+
+<div>
+  <ion-button (click) ="presentAlertPrompt()">prompt</ion-button> 
+</div> -->

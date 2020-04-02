@@ -84,29 +84,29 @@ export class AppComponent implements OnInit {
     
   }
 
-  async presentAlert() {
-    const path = window.location.pathname.split('folder/')[1];
-    const alert = await this.alertController.create({
-      header: 'New Client',
-     // subHeader: 'Subtitle',
-      message: 'Would you like to add a new client?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'Cancel',
-          cssClass: 'secondary',
-          handler: ()=> {console.log('clicked cancel')}
-        },
-        {
-          text: 'Yes',
-          handler: ()=> {}
+  // async presentAlert() {
+  //   const path = window.location.pathname.split('folder/')[1];
+  //   const alert = await this.alertController.create({
+  //     header: 'New Client',
+  //    // subHeader: 'Subtitle',
+  //     message: 'Would you like to add a new client?',
+  //     buttons: [
+  //       {
+  //         text: 'Cancel',
+  //         role: 'Cancel',
+  //         cssClass: 'secondary',
+  //         handler: ()=> {console.log('clicked cancel')}
+  //       },
+  //       {
+  //         text: 'Yes',
+  //         handler: ()=> {url: '/new-client/newClient'}
           
-        }
-      ]
-    });
+  //       }
+  //     ]
+  //   });
 
-    await alert.present();
-  }
+  //   await alert.present();
+  // }
 
  
 }
