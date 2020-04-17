@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { FolderPage } from './folder/folder.page';
 
 @Component({
   selector: 'app-root',
@@ -18,45 +19,22 @@ export class AppComponent implements OnInit {
       icon: 'person', 
       
     },
+    // {
+    //   title: 'UNutrition',
+    //   url: '/unutrition/unutrition',
+    //   icon: 'nutrition'
+    // },
     {
-      title: 'UNutrition',
-      url: '/unutrition/unutrition',
+      title: 'Food List',
+      url: '/food-list/foodList',
       icon: 'nutrition'
-    },
-    {
-      title: 'NewClient',
-      url: '/new-client/newClient',
-      icon: 'person'
     }
-    // {
-    //   title: 'Favorites',
-    //   url: '/folder/Favorites',
-    //   icon: 'heart'
-    // },
-    // {
-    //   title: 'Archived',
-    //   url: '/folder/Archived',
-    //   icon: 'archive'
-    // },
-    // {
-    //   title: 'Trash',
-    //   url: '/folder/Trash',
-    //   icon: 'trash'
-    // },
-    // {
-    //   title: 'Spam',
-    //   url: '/folder/Spam',
-    //   icon: 'warning'
-    // }, 
-    // // testing out new pages
-    // {
-    //   title: 'Hello World',
-    //   url: '/folder/Clients',
-    //   icon: 'person'
-    // }
+   
   ];
- // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   
+ 
+  
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -64,6 +42,7 @@ export class AppComponent implements OnInit {
     public alertController: AlertController
   ) {
     this.initializeApp();
+    
   }
 
   initializeApp() {
@@ -73,6 +52,8 @@ export class AppComponent implements OnInit {
     });
   }
 
+ 
+
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
@@ -80,33 +61,9 @@ export class AppComponent implements OnInit {
     }
   }
   
-  newClientClick(){
-    
-  }
+ 
 
-  // async presentAlert() {
-  //   const path = window.location.pathname.split('folder/')[1];
-  //   const alert = await this.alertController.create({
-  //     header: 'New Client',
-  //    // subHeader: 'Subtitle',
-  //     message: 'Would you like to add a new client?',
-  //     buttons: [
-  //       {
-  //         text: 'Cancel',
-  //         role: 'Cancel',
-  //         cssClass: 'secondary',
-  //         handler: ()=> {console.log('clicked cancel')}
-  //       },
-  //       {
-  //         text: 'Yes',
-  //         handler: ()=> {url: '/new-client/newClient'}
-          
-  //       }
-  //     ]
-  //   });
 
-  //   await alert.present();
-  // }
 
  
 }

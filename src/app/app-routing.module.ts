@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'folder/Clients',
     pathMatch: 'full'
   },
   {
@@ -12,13 +12,14 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'new-client/:id',
-    loadChildren: () => import('./new-client/new-client.module').then( m => m.NewClientPageModule)
-  },
-  {
     path: 'unutrition/:id',
     loadChildren: () => import('./unutrition/unutrition.module').then( m => m.UNutritionPageModule)
   },
+  {
+    path: 'food-list/:id',
+    loadChildren: () => import('./food-list/food-list.module').then( m => m.FoodListPageModule)
+  },
+
 
 
  
@@ -26,6 +27,7 @@ const routes: Routes = [
 
 
 ];
+
 
 @NgModule({
   imports: [

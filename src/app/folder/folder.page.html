@@ -11,6 +11,7 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">{{ folder }}</ion-title>
+      
     </ion-toolbar>
   </ion-header>
 
@@ -19,16 +20,30 @@
   <ion-list>
     <ion-item-sliding *ngFor="let item of items; let i = index">
       <ion-item>
-        <ion-label>{{item}}</ion-label>
+        <ion-label >
+          {{item}}
+          <ion-button (click) = 'goToClientNutrition(i)'> Nutrition Plan</ion-button>
+        </ion-label>
       </ion-item>
       
+      
+
+      <ion-item-options side = "start" (ionSwipe) = "openClients(i)">
+        <ion-item-option color = "secondary" (click) = "openClients(i)" expandable>
+          <ion-icon name = "open"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
       <ion-item-options side = "end" (ionSwipe) = "delete(i)">
         <ion-item-option color = "danger" (click) = "delete(i)" expandable>
           <ion-icon name = "close"></ion-icon>
         </ion-item-option>
       </ion-item-options>
       </ion-item-sliding>
+      
   </ion-list>
+
+  
 
 <ion-fab (click) = "newClients()" vertical="top" horizontal="end" slot="fixed">
    <ion-fab-button>
