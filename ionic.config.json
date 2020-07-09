@@ -1,7 +1,8 @@
 {
   "name": "UFit",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

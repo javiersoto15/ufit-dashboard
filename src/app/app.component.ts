@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
    
   ];
   
+
  
   
 
@@ -39,7 +40,8 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public alertController: AlertController
+    public alertController: AlertController,
+    
   ) {
     this.initializeApp();
     

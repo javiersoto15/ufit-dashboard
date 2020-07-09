@@ -22,7 +22,7 @@ export class FolderPage implements OnInit {
     
   }
 
-  items = [
+  public items = [
     'Zach Stenger',
     'Javier Soto', 
     'Mathew Moran', 

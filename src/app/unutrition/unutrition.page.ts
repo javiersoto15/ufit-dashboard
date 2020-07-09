@@ -16,6 +16,12 @@ export class UNutritionPage implements OnInit {
   mealTwo = [];
   mealThree = [];
   theSnack = [];
+  public items = [
+    'Zach Stenger',
+    'Javier Soto', 
+    'Mathew Moran', 
+    'Brett Nedz'
+  ];
   
   constructor(private activatedRoute: ActivatedRoute)  { }
 
@@ -26,7 +32,7 @@ export class UNutritionPage implements OnInit {
     
   }
   
- 
+  
 
   drop(event: CdkDragDrop<string[]>){
     if(event.previousContainer === event.container){
