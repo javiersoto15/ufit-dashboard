@@ -18,10 +18,11 @@
 
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of items; let i = index">
+    <ion-item-sliding *ngFor="let item of clients; let i = index">
       <ion-item>
         <ion-label >
-          {{item}}
+          {{item.firstName}}
+          {{item.lastName}}
           <ion-button (click) = 'goToClientNutrition(i)'> Nutrition Plan</ion-button>
         </ion-label>
       </ion-item>

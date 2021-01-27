@@ -6,6 +6,14 @@ import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { ClientListComponent } from '../components/client-list/client-list.component';
 import { Router } from '@angular/router'
 
+interface ClientData {
+  firstName: string;
+  lastName: string;
+  birthdate: Date; 
+  height: number;
+  weight: number;
+  gender: string;
+}
 
 @Component({
   selector: 'app-folder',
@@ -13,6 +21,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./folder.page.scss'],
 
 })
+
 export class FolderPage implements OnInit {
   public folder: string;
   constructor(private activatedRoute: ActivatedRoute, public alertController: AlertController, private router: Router) { }
@@ -22,13 +31,41 @@ export class FolderPage implements OnInit {
     
   }
 
+
   public items = [
     'Zach Stenger',
     'Javier Soto', 
     'Mathew Moran', 
     'Brett Nedz'
   ];
-  
+
+  public clients: ClientData[] = [
+    {
+      firstName: 'apple', 
+      lastName: 'fruit',
+      birthdate: new Date(),
+      height: 60, 
+      weight: 100, 
+      gender: 'Male'  
+   }, 
+   {
+    firstName: 'test', 
+    lastName: 'name',
+    birthdate: new Date(),
+    height: 60, 
+    weight: 100, 
+    gender: 'Male'  
+ },
+ {
+  firstName: 'second', 
+  lastName: 'test',
+  birthdate: new Date(),
+  height: 60, 
+  weight: 100, 
+  gender: 'Male'  
+},
+    
+];
   
   
   delete(i){
@@ -46,16 +83,17 @@ export class FolderPage implements OnInit {
         {
           name: 'name1',
           type: 'text',
-          placeholder: 'First Name',
+          placeholder: this.clients[i].firstName,
         },
         {
           name: 'name2',
           type: 'text',
-          placeholder: 'Last Name'
+          placeholder: this.clients[i].lastName
         },
         {
           name: 'birthdate',
           type: 'date',
+          placeholder: this.clients[i].birthdate.toString()
           
         },
         {
@@ -63,17 +101,17 @@ export class FolderPage implements OnInit {
           type: 'number',
           min: '0',
           max: '500',
-          placeholder: 'Weight'
+          placeholder: this.clients[i].weight.toString()
         },
         {
           name: 'Height',
           type: 'number',
-          placeholder: 'Height in inches'
+          placeholder: this.clients[i].height.toString()
         },
         {
           name: 'gender',
           type: 'text',
-          placeholder: 'Male or Female'
+          placeholder: this.clients[i].gender
 
         }
         
@@ -157,8 +195,17 @@ export class FolderPage implements OnInit {
     await alert.present();
     let result = await alert.onDidDismiss();
     console.log(result); 
-    let Clientname = result.data.values.name1 + result.data.values.name2;
-    this.items.push(Clientname);
+    var newClient: ClientData = {
+      firstName:   result.data.values.name1,
+      lastName:    result.data.values.name2,
+      birthdate:   result.data.values.birthdate,
+      weight:      result.data.values.weight,
+      height:      result.data.values.height,
+      gender:      result.data.values.gender,
+    }
+   
+
+    this.clients.push(newClient) 
     
   }
   
@@ -170,8 +217,6 @@ export class FolderPage implements OnInit {
   
 
 }
-
-
 
 // async presentAlert(){
 //   const alert = await this.alertController.create({
