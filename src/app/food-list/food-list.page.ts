@@ -65,12 +65,12 @@ export class FoodListPage implements OnInit {
           {
             name: 'name',
             type: 'text',
-            placeholder: 'Name',
+            placeholder: this.foodItems[i].name,
           },
           {
             name: 'Serving Size',
             type: 'text',
-            placeholder: 'Serving Size',
+            placeholder:  this.foodItems[i].servingSize.toString(),
             
           },
           {
@@ -78,21 +78,21 @@ export class FoodListPage implements OnInit {
             type: 'number',
             min: '0',
             max: '500',
-            placeholder: 'Protein in Grams'
+            placeholder: this.foodItems[i].protien.toString()
           },
           {
             name: 'Carbohydrates',
             type: 'number',
             min: '0',
             max: '500',
-            placeholder: 'Carbohydrates in Grams'
+            placeholder: this.foodItems[i].carbohydrates.toString()
           },
           {
             name: 'Fats',
             type: 'number',
             min: '0',
             max: '500',
-            placeholder: 'Fats in Grams'
+            placeholder: this.foodItems[i].fats.toString()
           },
           
         ],   
