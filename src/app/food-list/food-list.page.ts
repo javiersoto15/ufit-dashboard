@@ -6,6 +6,14 @@ import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { ClientListComponent } from '../components/client-list/client-list.component';
 import { Router } from '@angular/router'
 
+interface FoodData {
+  name: string;
+  servingSize: number; 
+  protien: number;
+  carbohydrates: number;
+  fats: number;
+}
+
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.page.html',
@@ -28,12 +36,22 @@ export class FoodListPage implements OnInit {
       'Beef'
     ];
 
+    public foodItems: FoodData[] = [
+      {
+        name: 'apple', 
+        servingSize: 60, 
+        protien: 100, 
+        carbohydrates: 100,
+        fats: 100,
+     },
+    ];
+
     
     
     
     delete(i){
       console.log('my Delete Works');
-      this.items.splice(i,1);
+      this.foodItems.splice(i,1);
       
       
     }
@@ -47,7 +65,7 @@ export class FoodListPage implements OnInit {
           {
             name: 'name',
             type: 'text',
-            placeholder: 'First Name',
+            placeholder: 'Name',
           },
           {
             name: 'Serving Size',
@@ -157,8 +175,16 @@ export class FoodListPage implements OnInit {
       await alert.present();
       let result = await alert.onDidDismiss();
       console.log(result); 
-      let foodName = result.data.values.name;
-      this.items.push(foodName);
+      var newFood: FoodData = {
+        name:           result.data.values.name,
+        servingSize:    result.data.values.servingSize,
+        protien:        result.data.values.protien,
+        carbohydrates:  result.data.values.carbohydrates,
+        fats:           result.data.values.fats,
+      }
+     
+  
+      this.foodItems.push(newFood);
       
     }
     
