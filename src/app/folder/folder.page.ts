@@ -70,7 +70,7 @@ export class FolderPage implements OnInit {
   
   delete(i){
     console.log('my Delete Works');
-    this.items.splice(i,1);
+    this.clients.splice(i,1);
     
     
   }
@@ -166,7 +166,7 @@ export class FolderPage implements OnInit {
           placeholder: 'Weight'
         },
         {
-          name: 'Height',
+          name: 'height',
           type: 'number',
           placeholder: 'Height in inches'
         },
@@ -205,7 +205,7 @@ export class FolderPage implements OnInit {
     }
    
 
-    this.clients.push(newClient) 
+    this.clients.push(newClient);
     
   }
   

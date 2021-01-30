@@ -8,6 +8,7 @@ import { Router } from '@angular/router'
 
 interface FoodData {
   name: string;
+  scale: string;
   servingSize: number; 
   protien: number;
   carbohydrates: number;
@@ -38,7 +39,8 @@ export class FoodListPage implements OnInit {
 
     public foodItems: FoodData[] = [
       {
-        name: 'apple', 
+        name: 'apple',
+        scale: 'whole',
         servingSize: 60, 
         protien: 100, 
         carbohydrates: 100,
@@ -69,30 +71,30 @@ export class FoodListPage implements OnInit {
           },
           {
             name: 'Serving Size',
-            type: 'text',
-            placeholder:  this.foodItems[i].servingSize.toString(),
-            
+            type: 'number',
+            placeholder:  this.foodItems[i].servingSize.toString() + ' ' + this.foodItems[i].scale
+
           },
           {
             name: 'Protein',
             type: 'number',
             min: '0',
             max: '500',
-            placeholder: this.foodItems[i].protien.toString()
+            placeholder: this.foodItems[i].protien.toString() + ' grams'
           },
           {
             name: 'Carbohydrates',
             type: 'number',
             min: '0',
             max: '500',
-            placeholder: this.foodItems[i].carbohydrates.toString()
+            placeholder: this.foodItems[i].carbohydrates.toString() + ' grams'
           },
           {
             name: 'Fats',
             type: 'number',
             min: '0',
             max: '500',
-            placeholder: this.foodItems[i].fats.toString()
+            placeholder: this.foodItems[i].fats.toString() + ' grams'
           },
           
         ],   
@@ -126,31 +128,35 @@ export class FoodListPage implements OnInit {
           {
             name: 'name',
             type: 'text',
-            placeholder: 'First Name',
+            placeholder: 'Food Name',
           },
           {
-            name: 'Serving Size',
+            name: 'scale',
+            type: 'text',
+            placeholder: 'serving scale',
+          },
+          {
+            name: 'servingSize',
             type: 'text',
             placeholder: 'Serving Size',
             
           },
           {
-            name: 'Protien',
+            name: 'protien',
             type: 'number',
             min: '0',
             max: '500',
             placeholder: 'Protien in Grams'
           },
           {
-            name: 'Carbohydrates',
+            name: 'carbohydrates',
             type: 'number',
             min: '0',
             max: '500',
             placeholder: 'Carbohydrates in Grams'
           },
           {
-            name: 'Fats',
-
+            name: 'fats',
             type: 'number',
             min: '0',
             max: '500',
@@ -177,6 +183,7 @@ export class FoodListPage implements OnInit {
       console.log(result); 
       var newFood: FoodData = {
         name:           result.data.values.name,
+        scale:          result.data.values.scale,
         servingSize:    result.data.values.servingSize,
         protien:        result.data.values.protien,
         carbohydrates:  result.data.values.carbohydrates,
