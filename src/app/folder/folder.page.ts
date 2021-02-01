@@ -24,20 +24,14 @@ interface ClientData {
 
 export class FolderPage implements OnInit {
   public folder: string;
-  constructor(private activatedRoute: ActivatedRoute, public alertController: AlertController, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, 
+    public alertController: AlertController, 
+    private router: Router) { }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     
   }
-
-
-  public items = [
-    'Zach Stenger',
-    'Javier Soto', 
-    'Mathew Moran', 
-    'Brett Nedz'
-  ];
 
   public clients: ClientData[] = [
     {
